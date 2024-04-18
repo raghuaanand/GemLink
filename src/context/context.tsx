@@ -2,17 +2,17 @@ import { createContext, useState } from "react";
 import runChat from "../config/gemini";
 
 
-export const Context=createContext();
-const ContextProvider=(props)=>{
+export const Context=createContext({} as any);
+const ContextProvider=(props:any)=>{
 
 
     const [input,setInput]=useState("");
     const [recentPrompt,setRecentPrompt]=useState("");
-    const [prevPrompts,setPrevPrompts]=useState([]);
+    const [prevPrompts, setPrevPrompts] = useState<string[]>([]);
     const [showResult,setShowResult]=useState(false);
     const [loading,setLoading]=useState(false);
     const [resultData,setResultData]=useState("");
-    const delayPara= (index,nextWord)=>{
+    const delayPara= (index:any,nextWord:any)=>{
         setTimeout(function(){
 
             setResultData(prev=>prev+nextWord)
@@ -26,7 +26,7 @@ const ContextProvider=(props)=>{
     }
 
 
-    const onSent=async(prompt)=>{
+    const onSent=async(prompt:any)=>{
         setResultData("")
         setLoading(true)
         setShowResult(true)
@@ -38,7 +38,7 @@ const ContextProvider=(props)=>{
             
         }
         else{
-            setPrevPrompts(prev=>[...prev,input])
+            setPrevPrompts(prev => [...prev,input])
             setRecentPrompt(input)
             response=await runChat(input)
         }
@@ -64,6 +64,7 @@ const ContextProvider=(props)=>{
       setInput("")
     }
      
+    
     const Contextvalue={
 
         prevPrompts,
