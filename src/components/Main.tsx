@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { assets } from "../assets/assets.ts";
 import { Context } from "../context/context";
+import Cards from "./Cards.tsx";
 
 const Main = () => {
 
@@ -39,22 +40,7 @@ const Main = () => {
                             <p>Got a question? Simply type in the highlighted prompt box and tap on the ‘Arrow’ icon or tap on any of the suggestions given below.</p>
                         </div>
                         <div className="cards">
-                            <div className="card">
-                                <p>Guide with some Amazing projects for my resume</p>
-                                <img src={assets.compass_icon} alt="" />
-                            </div>
-                            <div className="card">
-                                <p>Briefly summerize the concept:urban palnning</p>
-                                <img src={assets.bulb_icon} alt="" />
-                            </div>
-                            <div className="card">
-                                <p>Brain storm team bonding activities for our work retreat</p>
-                                <img src={assets.message_icon} alt="" />
-                            </div>
-                            <div className="card">
-                                <p>Improve the Reablity of follwing code</p>
-                                <img src={assets.code_icon} alt="" />
-                            </div>
+                            <Cards />
                         </div>
                     </>
                 ) : (
